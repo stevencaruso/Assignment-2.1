@@ -1,0 +1,14 @@
+//List oldest player
+db.teamDetails.find().pretty().sort({"Age":-1}).collation({locale:"en_US", numericOrdering:true}).limit(1)
+
+//List player's first names by deaths of fans in decending order
+db.teamDetails.find({}, {"First_Name":1,_id:0}).sort({"Deaths_of_Fans":-1}).collation({locale:"en_US", numericOrdering:true})
+
+//List player's last names by free throws in accending order
+db.teamDetails.find({}, {"Last_Name":1,_id:0}).sort({"Free_Throws":1}).collation({locale:"en_US", numericOrdering:true})
+
+//List player with most dunks
+db.teamDetails.find().pretty().sort({"Dunks":-1}).collation({locale:"en_US", numericOrdering:true}).limit(1)
+
+//List player's first names in alphabetical order
+db.teamDetails.find({}, {"First_Name":1,_id:0}).sort({'First_Name': 1})
